@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07120f">
+  <title>SKY RAID — Vertical Shooter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SKY RAID 홈">
+        <span class="brand-mark">SR</span>
+        <span>SKY RAID <small>VERTICAL COMBAT</small></span>
+      </a>
+      <div class="top-status"><span class="live-dot"></span> 작전 구역 진입 중</div>
+      <div class="top-actions">
+        <button class="sound-button sound-toggle" id="sound-toggle" type="button" aria-label="효과음 끄기">♫</button>
+        <button class="sound-button" id="pause-button" type="button" aria-label="게임 일시정지">Ⅱ</button>
+      </div>
+    </header>
+
+    <section class="game-layout" aria-label="슈팅 게임">
+      <aside class="side-panel">
+        <p class="eyebrow">MISSION 01 <span>·</span> FRONTIER</p>
+        <h1>하늘을<br><em>돌파하라.</em></h1>
+        <p class="intro">적의 공습을 막고 작전 지역의 지상 시설을 파괴하세요.</p>
+
+        <div class="mission-card">
+          <div class="card-heading"><span class="status-pip"></span> FLIGHT STATUS</div>
+          <div class="stat-row"><span>점수</span><strong id="score">000000</strong></div>
+          <div class="stat-row"><span>최고 기록</span><strong id="best-score">000000</strong></div>
+          <div class="stat-row"><span>기체 내구도</span><strong class="lives" id="lives">◆ ◆ ◆</strong></div>
+          <div class="stat-row"><span>작전 단계</span><strong id="level">01</strong></div>
+        </div>
+
+        <div class="weapon-card">
+          <div class="card-heading">WEAPON SYSTEMS</div>
+          <div class="weapon-row"><span class="weapon-icon air-icon">✦</span><span>공대공 기관포</span><kbd>SPACE</kbd></div>
+          <div class="weapon-row"><span class="weapon-icon ground-icon">◎</span><span>지상 폭탄</span><kbd>X</kbd></div>
+        </div>
+
+        <p class="desktop-hint">방향키 또는 <b>W A S D</b>로 기체를 조종하세요.</p>
+      </aside>
+
+      <div class="screen-frame">
+        <div class="screen-topline"><span>SECTOR 07 — NORTH RIDGE</span><span id="altitude">ALT 0042</span></div>
+        <div class="canvas-wrap">
+          <canvas id="game" aria-label="게임 화면"></canvas>
+          <div class="overlay" id="overlay">
+            <div class="overlay-card">
+              <span class="overlay-kicker" id="overlay-kicker">PILOT, READY?</span>
+              <h2 id="overlay-title">출격 준비</h2>
+              <p id="overlay-copy">적의 편대를 격추하고 지상 기지를 폭격하세요.</p>
+              <button class="launch-button" id="start-button" type="button">작전 시작 <span>→</span></button>
+              <div class="overlay-foot">이동 <b>WASD / 방향키</b><i>·</i> 기관포 <b>SPACE</b><i>·</i> 폭탄 <b>X</b></div>
+            </div>
+          </div>
+          <div class="hud hud-left"><span class="hud-label">THREAT</span><span class="threat-bars"><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="hud hud-right"><span class="hud-label">BOMBS</span><span class="bomb-count" id="bomb-count">● ● ●</span></div>
+          <div class="touch-controls" aria-label="터치 조작">
+            <div class="touch-pad">
+              <button data-move="up" aria-label="위로 이동">▲</button>
+              <div><button data-move="left" aria-label="왼쪽으로 이동">◀</button><button data-move="down" aria-label="아래로 이동">▼</button><button data-move="right" aria-label="오른쪽으로 이동">▶</button></div>
+            </div>
+            <div class="touch-weapons"><button data-action="fire">FIRE</button><button data-action="bomb">BOMB</button></div>
+          </div>
+        </div>
+        <div class="screen-footer"><span><i class="footer-dot"></i> SYSTEM ONLINE</span><span>HTML5 CANVAS <b>·</b> v1.0</span></div>
+      </div>
+    </section>
+    <footer class="page-footer"><span>SKY RAID <b>—</b> DEFEND THE FRONTIER</span><span>1 PLAYER <b>·</b> ENDLESS SORTIE</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
